@@ -1,0 +1,58 @@
+.register {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("https://previews.123rf.com/images/artsvitlyna/artsvitlyna1702/artsvitlyna170200056/71656574-books-background-many-different-books-on-violet-wall-cup-of-tea-on-books-stack-.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+}
+
+.formRegister {
+  width: 31vw;
+  height: 73vh;
+  min-width: 300px;
+  margin-top: 40px;
+  padding: 30px;
+  background-color: rgb(90, 9, 128);
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registerHeading {
+  padding: 16px;
+  font-size: 30px;
+  font-weight: 700;
+  font-size: 40px;
+  color: #ffffff;
+}
+
+.registerInput {
+  width: 25vw;
+  height: 5vh;
+  margin: 10px;
+  border-radius: 30px;
+  border: solid 2px rgb(190, 190, 190);
+  padding: 0px 20px;
+}
+
+.registerInputAddress {
+  width: 25vw;
+  height: 9vh;
+  margin: 10px;
+  border-radius: 30px;
+  border: solid 2px rgb(190, 190, 190);
+  padding: 5px 20px;
+}
+
+.registerButton {
+  margin: 20px;
+  padding: 10px;
+  background-color: rgb(255, 153, 241);
+  color: rgb(30, 0, 58);
+  font-size: 18px;
+  border-radius: 30px;
+}
