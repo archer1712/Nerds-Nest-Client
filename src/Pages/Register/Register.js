@@ -50,7 +50,7 @@ const Register = () => {
     };
     try {
       const res = await axios.post(
-        "http://localhost:5000/auth/register",
+        "https://nerds-nest-server.herokuapp.com/auth/register",
         newUser
       );
       if (res.status === 202) {

@@ -32,7 +32,10 @@ function GenresPage() {
     e.preventDefault();
     const Book = { ...state, genres };
     try {
-      const res = await axios.post("http://localhost:5000/book/sellrent", Book);
+      const res = await axios.post(
+        "https://nerds-nest-server.herokuapp.com/book/sellrent",
+        Book
+      );
       console.log(res);
       navigate("/buyborrow");
     } catch (err) {

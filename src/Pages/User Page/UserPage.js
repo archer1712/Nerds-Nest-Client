@@ -9,7 +9,7 @@ const UserPage = () => {
     const fetchUser = async () => {
       try {
         const currentUser = await axios.get(
-          `http://localhost:5000/user/${user.email}`
+          `https://nerds-nest-server.herokuapp.com/user/${user.email}`
         );
         setBorrowed(currentUser.borrowed);
         setBought(currentUser.bought);

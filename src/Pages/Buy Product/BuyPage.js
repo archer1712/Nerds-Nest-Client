@@ -15,7 +15,7 @@ const BuyPage = () => {
     const fetchBooks = async () => {
       try {
         const BooksFetched = await axios.get(
-          "http://localhost:5000/book/buyborrow"
+          "https://nerds-nest-server.herokuapp.com/book/buyborrow"
         );
         setBookList(BooksFetched.data);
       } catch (err) {

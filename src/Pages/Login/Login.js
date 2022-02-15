@@ -30,7 +30,10 @@ const Login = () => {
       address: "",
     };
     try {
-      const res = await axios.post("http://localhost:5000/auth/login", user);
+      const res = await axios.post(
+        "https://nerds-nest-server.herokuapp.com/auth/login",
+        user
+      );
       console.log(res);
       if (res.status === 200) {
         const phone = res.data.phonenumber;
