@@ -12,6 +12,8 @@ export const Books = [
       address: "kanpur",
       id: "123",
     },
+    borrowerName: "Prachet",
+    borrowerEmail: "prachetchoudha@gmail.com",
     upFor: "Sale",
   },
   {
@@ -27,6 +29,8 @@ export const Books = [
       address: "kanpur",
       id: "123",
     },
+    borrowerName: "Prachet",
+    borrowerEmail: "prachetchoudha@gmail.com",
     upFor: "Borrow",
   },
 ];

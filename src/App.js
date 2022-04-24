@@ -7,6 +7,7 @@ import Register from "./Pages/Register/Register";
 import SellPage from "./Pages/Sell Product/SellPage";
 import UserPage from "./Pages/User Page/UserPage";
 import GenresPage from "./Pages/Choose Genres/GenresPage";
+import Requests from "./Pages/Requests Page/Requests";
 import { createStore } from "redux";
 import userReducer from "./Redux Use/Reducers/UserLoginReducer";
 import { Provider } from "react-redux";
@@ -28,6 +29,7 @@ function App() {
             <Route path="/sellrent" element={<SellPage />}></Route>
             <Route path="/profile" element={<UserPage />}></Route>
             <Route path="/genres" element={<GenresPage />}></Route>
+            <Route path="/requests" element={<Requests />}></Route>
           </Routes>
         </div>
       </Router>

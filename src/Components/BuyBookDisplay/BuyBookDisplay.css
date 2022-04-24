@@ -56,8 +56,9 @@
 .salerent {
   /* border: solid 2px black; */
   align-self: flex-start;
-  height: 40px;
+  height: 50px;
   width: 150px;
+  padding: 2px;
   border-bottom-left-radius: 10px;
   background-color: rgb(219, 163, 219);
   color: rgb(97, 9, 97);
@@ -74,4 +75,5 @@
   background-color: rgb(100, 0, 100);
   color: rgb(253, 219, 253);
   font-size: 17px;
+  cursor: pointer;
 }

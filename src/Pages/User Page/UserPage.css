@@ -6,7 +6,54 @@
   background-size: 100vw 100vh;
   background-color: rgb(247, 227, 255);
   display: flex;
-  flex: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userDetails {
+  display: flex;
+  margin-top: 40px;
+  width: 70%;
+  height: 40%;
+  background-color: white;
+  border-radius: 40px;
+  border: solid 2px grey;
+  padding-bottom: 10px;
+}
+
+.userDetailsLeft {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: solid 2px grey;
+}
+
+.userImage {
+  /* border: solid 2px black; */
+  height: 90%;
+  width: 80%;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.userName {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.userDetailsRight {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 20px;
+  line-height: 24px;
 }
 
 .userLeft {
@@ -29,114 +76,107 @@
   bottom: 4px;
   right: 4px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-
-.userImage {
-  /* border: solid 2px black; */
-  height: 70%;
-  width: 55%;
+.deleteAccountButton {
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(184, 0, 0, 0.759);
+  border: solid 5px black;
+  border-radius: 7px;
+  margin-left: 0px;
+  color: rgb(255, 255, 255);
 }
 
-img {
-  height: 100%;
-  width: 100%;
+.deleteAccountButton:hover {
+  cursor: pointer;
+  background-color: rgb(103, 23, 23);
 }
 
-.userFullName {
-  /* border: solid 2px green; */
-  height: 10%;
-  width: 60%;
-  font-size: 20px;
+.changePasswordButton {
+  padding: 10px;
+  margin: 10px;
+  background-color: green;
+  border: solid 5px black;
+  border-radius: 7px;
+  margin-right: 0px;
+  color: white;
 }
 
-.userdetails {
-  flex: 1;
-  position: relative;
-}
-
-.userdetailsCard {
-  background-color: white;
-  height: 80%;
+.bookDetails {
   width: 70%;
-  border-radius: 30px;
-  position: absolute;
-  right: 4px;
-  top: 4px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.subheading {
-  margin: 0px 40px;
-  margin-top: 15px;
-  font-weight: 700;
-}
-
-.useremail {
-  flex: 1;
-  margin: 0px 40px;
-  margin-top: 6px;
-  margin-bottom: 0px;
-}
-
-.useraddress {
-  flex: 1.5;
-  margin: 0px 40px;
-  margin-top: 6px;
-  margin-bottom: 0px;
-}
-
-.userphone {
-  flex: 1;
-  margin: 0px 40px;
-  margin-top: 6px;
-  margin-bottom: 0px;
-}
-
-.divider {
-  margin: 7px;
-}
-
-.userRight {
-  flex: 2;
-  position: relative;
-}
-
-.userRightCard {
-  background-color: white;
-  height: 81%;
-  width: 80%;
-  position: absolute;
-  left: 4px;
-  border-radius: 30px;
-  top: 9vh;
-  text-align: left;
-}
-
-.urSemi {
   height: 50%;
-  width: 100%;
-  /* border: solid 2px green; */
+  border: solid 2px black;
+  margin: 10px;
+  border-radius: 40px;
+  background-color: white;
   display: flex;
-}
-
-.urQuarter {
-  height: 100%;
-  width: 50%;
-  /* border: solid 2px brown; */
-}
-
-.urHeading {
-  margin: 35px;
+  flex-direction: row;
   text-align: left;
-  font-size: 20px;
-  margin-bottom: 10px;
 }
 
-li {
-  margin-left: 30px;
+.borrowed {
+  width: 47%;
+  height: 90%;
+  /* margin-right: 3%; */
+  padding-left: 30px;
+  padding-top: 30px;
+  border-right: solid 2px rgb(109, 109, 109);
 }
+
+.lent {
+  width: 45%;
+  height: 90%;
+  /* margin-left: 3%; */
+  padding-left: 30px;
+  padding-top: 30px;
+  /* border: solid 2px green; */
+}
+
+.heading {
+  font-size: 25px;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+
+.listOfBooks {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  height: 80%;
+  margin-left: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

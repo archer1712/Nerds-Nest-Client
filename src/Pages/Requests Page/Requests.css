@@ -1,0 +1,15 @@
+.requestContainer {
+    height: 98vh;
+    width: 98vw;
+    margin: 2px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.requestHeading {
+    font-size: 30px;
+    margin: 10px;
+    text-align: left;
+    margin-left: 4%;
+    margin-top: 2.5%;
+}

@@ -20,11 +20,11 @@ const MainOptions = () => {
         <button className="button" onClick={(e) => navigate("/sellrent")}>
           Sell a Book
         </button>
-        <button className="button" onClick={(e) => navigate("/buyborrow")}>
-          Borrow a Book
+        <button className="button" onClick={(e) => navigate("/requests")}>
+          View Requests
         </button>
-        <button className="button" onClick={(e) => navigate("/sellrent")}>
-          Lend a Book
+        <button className="button" onClick={(e) => navigate("/mybooks")}>
+          My Books
         </button>
         <div className="iconContainer">
           <IconButton onClick={(e) => navigate("/profile")}>
