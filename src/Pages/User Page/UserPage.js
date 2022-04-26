@@ -100,6 +100,7 @@ const UserPage = () => {
             Address : CT-15, Armapur Estate, Armapur, Kanpur - 500078
           </div>
           <div className="userPhone">Phone : 9830509800</div>
+          <div className="userPhone">Wallet Balance : Rs. 100</div>
           <div className="userButtons">
             <div className="deleteAccount">
               <button className="deleteAccountButton" onClick={handleClickOpen}>

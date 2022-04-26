@@ -26,6 +26,9 @@ const MainOptions = () => {
         <button className="button" onClick={(e) => navigate("/mybooks")}>
           My Books
         </button>
+        <button className="button" onClick={(e) => navigate("/admintransac")}>
+          View All Transactions
+        </button>
         <div className="iconContainer">
           <IconButton onClick={(e) => navigate("/profile")}>
             <AccountCircleIcon style={{ fontSize: 62 }} className="icon" />

@@ -1,0 +1,129 @@
+.singleBook {
+    border: solid 2px #d1d1d1;
+    margin: 25px;
+    margin-right: 40px;
+    border-radius: 10px;
+    min-height: 35vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .bookImg {
+    height: 35vh;
+    width: 17vw;
+  }
+  
+  .bookInfo {
+    width: 80vw;
+    margin: 20px;
+    text-align: left;
+    min-width: 0px;
+  }
+  
+  .bookTitle {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  
+  .bookDesc {
+    font-size: 16px;
+    margin-bottom: 11px;
+    color: #888787;
+  }
+  
+  .bookGenres {
+    margin-top: 12px;
+  }
+  
+  .bookGenre {
+    border-radius: 25px;
+    background-color: #cfcfcf;
+    opacity: 0.7;
+    padding: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0px 5px;
+    font-size: 14px;
+  }
+  
+  .bookGenre:hover {
+    background-color: plum;
+    color: #330033;
+    font-weight: bold;
+  }
+  
+  .salerent {
+    /* border: solid 2px black; */
+    align-self: flex-start;
+    height: 50px;
+    width: 150px;
+    padding: 2px;
+    border-bottom-left-radius: 10px;
+    background-color: rgb(219, 163, 219);
+    color: rgb(97, 9, 97);
+    font-size: 14px;
+    font-weight: 500;
+    border-top-right-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .salerent:hover {
+    background-color: rgb(100, 0, 100);
+    color: rgb(253, 219, 253);
+    font-size: 17px;
+    cursor: pointer;
+  }
+  
+  .details {
+      height: 17vh;
+      display: flex;
+  }
+
+  .leftCon {
+      flex: 1;
+      margin: 10px;
+      padding: 20px;
+      border-radius: 25px;
+    background-color: #cfcfcf;
+    opacity: 0.7;
+  }
+
+  .middleCon {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: #cfcfcf;
+    opacity: 0.7;
+}
+
+.rightCon {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: #cfcfcf;
+    opacity: 0.7;
+}
+
+.leftCon:hover {
+    background-color: plum;
+    color: #330033;
+    font-weight: bold;
+}
+
+.rightCon:hover {
+    background-color: plum;
+    color: #330033;
+    font-weight: bold;
+}
+
+.middleCon:hover {
+    background-color: plum;
+    color: #330033;
+    font-weight: bold;
+}

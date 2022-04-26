@@ -11,6 +11,7 @@ import Requests from "./Pages/Requests Page/Requests";
 import { createStore } from "redux";
 import userReducer from "./Redux Use/Reducers/UserLoginReducer";
 import { Provider } from "react-redux";
+import Transactions from "./Admin Pages/View Transactions/Transactions";
 
 function App() {
   const store = createStore(
@@ -30,6 +31,7 @@ function App() {
             <Route path="/profile" element={<UserPage />}></Route>
             <Route path="/genres" element={<GenresPage />}></Route>
             <Route path="/requests" element={<Requests />}></Route>
+            <Route path="/admintransac" element={<Transactions />}></Route>
           </Routes>
         </div>
       </Router>
