@@ -24,9 +24,7 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
-            {/* <Route exact path="/" element={<MainOptions />}></Route>
-            <ProtectedRoute exact path="/" element={<MainOptions />} /> */}
-            <Route exact path="/buyborrow" element={<ProtectedRoute />}>
+            {/* <Route exact path="/buyborrow" element={<ProtectedRoute />}>
               <Route exact path="/buyborrow" element={<BuyPage />} />
             </Route>
             <Route exact path="/" element={<ProtectedRoute />}>
@@ -46,7 +44,7 @@ function App() {
             </Route>
             <Route exact path="/admintransac" element={<ProtectedRoute />}>
               <Route exact path="/admintransac" element={<Transactions />} />
-            </Route>
+            </Route> */}
             <Route exact path="/buyborrow" element={<BuyPage />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
