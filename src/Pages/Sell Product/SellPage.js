@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "./SellPage.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import axios from "axios"
 
 const SellPage = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [desc, setDesc] = useState("");
   const [img, setImg] = useState("");
-  const [puton, setPutOn] = useState("");
   const [price, setPrice] = useState("");
   const [isbn, setIsbn] = useState("");
   const selleraddress = useSelector((state) => state.address);
@@ -21,19 +21,18 @@ const SellPage = () => {
     name: sellername,
   };
 
-  const handlePutUp = (e) => {
+  const handlePutUp = async (e) => {
     e.preventDefault();
-    setPutOn(document.getElementById("buyorborrow").value);
-    const Book = {
-      title: title,
-      author: author,
-      desc: desc,
-      img: img,
-      isbn: isbn,
-      price: price,
-      upFor: puton,
-      seller: seller,
-    };
+      const Book = {
+        title: title,
+        author: author,
+        desc: desc,
+        img: img,
+        isbn: isbn,
+        price: price,
+        seller: seller,
+      };
+    
     navigate("/genres", { state: Book });
   };
 
@@ -68,12 +67,6 @@ const SellPage = () => {
             placeholder="Paste the link to it's image here"
             onChange={(e) => setImg(e.target.value)}
           ></input>
-          <div className="bboption" id="buyorborrow">
-            <input type="radio" name="bbOption" value="sale" />
-            <span className="option">Put Up On Sale</span>
-            <input type="radio" name="bbOption" value="rent" />
-            <span className="option">Put Up On Rent</span>
-          </div>
           <div className="titleauthor">
             <input
               className="sellInput halfInput"

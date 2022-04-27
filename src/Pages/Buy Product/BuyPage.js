@@ -15,7 +15,7 @@ const BuyPage = () => {
     const fetchBooks = async () => {
       try {
         const BooksFetched = await axios.get(
-          "baseUrl/book/buyborrow"
+          "http://localhost:8080/book/get-all-books"
         );
         setBookList(BooksFetched.data);
       } catch (err) {

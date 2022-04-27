@@ -24,6 +24,7 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
+            <Route exact path="/" element={<MainOptions />}></Route>
             <Route exact path="/buyborrow" element={<BuyPage />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
