@@ -27,6 +27,9 @@ const MainOptions = () => {
         <button className="button" onClick={(e) => navigate("/mybooks")}>
           My Books
         </button>
+        <button className="button" onClick={(e) => navigate("/myreqs")}>
+          My Requests
+        </button>
         {isUserAdmin && (
           <button className="button" onClick={(e) => navigate("/admintransac")}>
             View All Transactions

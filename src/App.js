@@ -12,7 +12,7 @@ import { createStore } from "redux";
 import userReducer from "./Redux Use/Reducers/UserLoginReducer";
 import { Provider } from "react-redux";
 import Transactions from "./Admin Pages/View Transactions/Transactions";
-import ProtectedRoute from "./Pages/Protected Route/ProtectedRoute";
+import MyReqs from "./Pages/MyReqs/MyReqs";
 
 function App() {
   const store = createStore(
@@ -24,27 +24,6 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
-            {/* <Route exact path="/buyborrow" element={<ProtectedRoute />}>
-              <Route exact path="/buyborrow" element={<BuyPage />} />
-            </Route>
-            <Route exact path="/" element={<ProtectedRoute />}>
-              <Route exact path="/" element={<MainOptions />} />
-            </Route>
-            <Route exact path="/rent" element={<ProtectedRoute />}>
-              <Route exact path="/rent" element={<SellPage />} />
-            </Route>
-            <Route exact path="/profile" element={<ProtectedRoute />}>
-              <Route exact path="/profile" element={<UserPage />} />
-            </Route>
-            <Route exact path="/genres" element={<ProtectedRoute />}>
-              <Route exact path="/genres" element={<GenresPage />} />
-            </Route>
-            <Route exact path="/requests" element={<ProtectedRoute />}>
-              <Route exact path="/requests" element={<Requests />} />
-            </Route>
-            <Route exact path="/admintransac" element={<ProtectedRoute />}>
-              <Route exact path="/admintransac" element={<Transactions />} />
-            </Route> */}
             <Route exact path="/buyborrow" element={<BuyPage />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
@@ -53,6 +32,8 @@ function App() {
             <Route path="/genres" element={<GenresPage />}></Route>
             <Route path="/requests" element={<Requests />}></Route>
             <Route path="/admintransac" element={<Transactions />}></Route>
+            <Route path="/myreqs" element={<MyReqs />}></Route>
+            <Route exact path="/" element={<MainOptions />}></Route>
           </Routes>
         </div>
       </Router>
