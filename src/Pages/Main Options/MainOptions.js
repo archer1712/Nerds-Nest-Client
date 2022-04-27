@@ -9,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 const MainOptions = () => {
   const navigate = useNavigate();
   const username = useSelector((state) => state.name);
+  const isUserAdmin = useSelector((state) => state.isUserAdmin);
   return (
     <div className="containerMainOptions">
       <Navbar />
@@ -26,9 +27,9 @@ const MainOptions = () => {
         <button className="button" onClick={(e) => navigate("/mybooks")}>
           My Books
         </button>
-        <button className="button" onClick={(e) => navigate("/admintransac")}>
+        {isUserAdmin && <button className="button" onClick={(e) => navigate("/admintransac")}>
           View All Transactions
-        </button>
+        </button>}
         <div className="iconContainer">
           <IconButton onClick={(e) => navigate("/profile")}>
             <AccountCircleIcon style={{ fontSize: 62 }} className="icon" />

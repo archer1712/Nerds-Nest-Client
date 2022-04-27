@@ -33,7 +33,7 @@ function GenresPage() {
     const Book = { ...state, genres };
     try {
       const res = await axios.post(
-        "https://nerds-nest-server.herokuapp.com/book/sellrent",
+        "baseUrl/book/sellrent",
         Book
       );
       console.log(res);
