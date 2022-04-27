@@ -1,4 +1,5 @@
 import * as React from "react";
+import axios from "axios";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -9,6 +10,8 @@ import "./BuyBookDisplay.css";
 
 const BuyBookDisplay = ({ book }) => {
   const [open, setOpen] = React.useState(false);
+  
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -20,7 +23,7 @@ const BuyBookDisplay = ({ book }) => {
 
   return (
     <div className="singleBook">
-      <img src={book.img} className="bookImg" />
+      <img src={book.img} className="bookImg" alt="Here is an img"/>
       <div className="bookInfo">
         <div className="bookTitle">{book.title}</div>
         <div className="bookDesc">{book.desc}</div>
@@ -28,19 +31,16 @@ const BuyBookDisplay = ({ book }) => {
           <b>ISBN:</b> {book.isbn}
         </div>
         <div>
-          <b>Price:</b> {book.price}
+          <b>Lender:</b> {book.lenderName || ""}
         </div>
         <div>
-          <b>Seller:</b> book.seller.name
+          <b>Seller's Email Address:</b> {book.lenderEmail || ""}
         </div>
-        <div>
-          <b>Seller's Address:</b> book.seller.address
-        </div>
-        <div className="bookGenres">
+        {/* <div className="bookGenres">
           {book.genres.map((genre) => (
             <span className="bookGenre">{genre}</span>
           ))}
-        </div>
+        </div> */}
       </div>
       <div className="salerent" onClick={handleClickOpen}>
         Request For Borrowing

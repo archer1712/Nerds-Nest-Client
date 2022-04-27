@@ -25,13 +25,13 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     var user = {
-      // name: name,
+      name: name,
       email: email,
       password: password,
       isUserAdmin: false,
-      userId: ""
+      userId: "",
       // phone: "",
-      // address: "",
+      address: ""
     };
     try {
       const res = await axios.post(

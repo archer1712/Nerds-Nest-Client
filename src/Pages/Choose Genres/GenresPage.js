@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Genres.css";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function GenresPage() {
   const [art, setArt] = useState(false);
@@ -24,17 +25,25 @@ function GenresPage() {
   const [suspense, setSuspense] = useState(false);
   const [thriller, setThriller] = useState(false);
   const [travel, setTravel] = useState(false);
-  const [genres, setGenres] = useState([]);
+  const [genres, setGenres] = useState("");
+  const [lender, setLender] = useState("");
   const { state } = useLocation();
   const navigate = useNavigate();
+  const lenderName = useSelector((state) => state.name);
+  const lenderAddress = useSelector((state) => state.address);
+  const lenderEmail = useSelector((state) => state.email);
 
   const handlePutbook = async (e) => {
     e.preventDefault();
     const Book = { ...state, genres };
+    Book.lender = JSON.parse(localStorage.getItem("userID"));
+    Book.lenderName = lenderName;
+    Book.lenderAddress = lenderAddress;
+    Book.lenderEmail = lenderEmail;
+    console.log(Book);
     try {
       const res = await axios.post(
-        "baseUrl/book/sellrent",
-        Book
+        "http://localhost:8080/book/add-book",Book
       );
       console.log(res);
       navigate("/buyborrow");

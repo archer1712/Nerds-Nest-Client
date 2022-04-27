@@ -45,6 +45,7 @@ function App() {
             <Route exact path="/admintransac" element={<ProtectedRoute />}>
               <Route exact path="/admintransac" element={<Transactions />} />
             </Route> */}
+            <Route exact path="/" element={<MainOptions />}></Route>
             <Route exact path="/buyborrow" element={<BuyPage />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
