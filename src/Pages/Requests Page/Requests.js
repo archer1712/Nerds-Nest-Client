@@ -1,5 +1,6 @@
 import React from "react";
 import "./Requests.css";
+import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { IconButton } from "@mui/material";
@@ -9,8 +10,32 @@ import Request from "../../Components/Request Component/Request";
 import { Books } from "../../dummyData";
 
 function Requests() {
-  const [requests, setRequests] = React.useState(Books);
+  const [requests, setRequests] = React.useState([]);
   const navigate = useNavigate();
+
+  const [dataRecieved, setDataRecieved] = React.useState(false);
+
+  React.useEffect(() => {
+    const fetchRequests = async () => {
+      const userID = JSON.parse(localStorage.getItem("userID"))
+      try {
+        const BooksFetched = await axios.get(
+          `http://localhost:8080/user/get-all-lending-requests?userid=${userID}` 
+        );
+        console.log(BooksFetched.data);
+
+        if(BooksFetched.status === 200){
+          setRequests(BooksFetched.data);
+          setDataRecieved(true);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchRequests();
+  }, []);
+
+
   return (
     <div className="requestContainer">
       <div className="buyNav">
@@ -29,11 +54,11 @@ function Requests() {
       </div>
       <Divider sx={{ borderBottomWidth: 3 }} />
       <div className="requestHeading">Requests</div>
-      <div className="requestlist">
-        {requests.map((book) => (
-          <Request request={book} />
+      {dataRecieved ? <div className="requestlist">
+        {requests.map((req) => (
+          <Request book={req.book} status = {req.status} borrower = {req.borrower} />
         ))}
-      </div>
+      </div> : "Loading Data"}
     </div>
   );
 }

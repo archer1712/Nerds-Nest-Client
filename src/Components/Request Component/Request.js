@@ -9,7 +9,7 @@ import TextField from "@mui/material/TextField";
 import "./Request.css";
 import "../BuyBookDisplay/BuyBookDisplay.css";
 
-function Request({ request }) {
+function Request({ book, status, borrower }) {
   const [rejectopen, setrejectOpen] = React.useState(false);
   const [acceptopen, setacceptOpen] = React.useState(false);
 
@@ -31,24 +31,24 @@ function Request({ request }) {
 
   return (
     <div className="singleBook">
-      <img src={request.img} className="bookImg" />
+      <img src={book.img} className="bookImg" />
       <div className="bookInfo">
-        <div className="bookTitle">{request.title}</div>
-        <div className="bookDesc">{request.desc}</div>
+        <div className="bookTitle">{book.title}</div>
+        <div className="bookDesc">{book.desc}</div>
         <div>
-          <b>ISBN:</b> {request.isbn}
+          <b>ISBN:</b> {book.isbn}
         </div>
         <div>
-          <b>Borrower's Name:</b> {request.borrowerName}
+          <b>Borrower's Name:</b> {borrower.name}
         </div>
         <div>
-          <b>Borrower's Email Address:</b> {request.borrowerEmail}
+          <b>Borrower's Email Address:</b> {borrower.email}
         </div>
-        <div className="bookGenres">
-          {request.genres.map((genre) => (
+        {/* <div className="bookGenres">
+          {book.genres.map((genre) => (
             <span className="bookGenre">{genre}</span>
           ))}
-        </div>
+        </div> */}
       </div>
       <div className="salerent accept" onClick={handleacceptOpen}>
         Accept Request
@@ -69,15 +69,6 @@ function Request({ request }) {
             id="Location"
             label="Location"
             type="location"
-            fullWidth
-            variant="standard"
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="Price"
-            label="Price"
-            type="price"
             fullWidth
             variant="standard"
           />

@@ -11,8 +11,27 @@ import { Books } from "../../dummyData";
 import MyRequest from "../../Components/MyRequest/MyRequest";
 
 const MyReqs = () => {
-  const [BookList, setBookList] = useState([]);
+  const [requestList, setRequestList] = useState([]);
+  const [dataRecieved, setDataRecieved] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchRequests = async () => {
+      try {
+        const BooksFetched = await axios.get(
+          `http://localhost:8080/user/get-all-requests?userid=${localStorage.getItem("userID")}` 
+        );
+        console.log(BooksFetched.data);
+        setRequestList(BooksFetched.data);
+        setDataRecieved(true);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchRequests();
+  }, []);
+  
+
 
   return (
     <div className="buyContainer">
@@ -31,11 +50,11 @@ const MyReqs = () => {
         </div>
       </div>
       <Divider sx={{ borderBottomWidth: 3 }} />
-      <div className="buyBooks">
-        {Books.map((book) => (
-          <MyRequest Request={book} />
+      {dataRecieved ?<div className="buyBooks">
+        {requestList.map((req) => (
+          <MyRequest book = {req.book} status = {req.status} />
         ))}
-      </div>
+      </div> : "Loading Data"}
     </div>
   );
 };
