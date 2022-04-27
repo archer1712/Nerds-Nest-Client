@@ -9,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 const MainOptions = () => {
   const navigate = useNavigate();
   const username = useSelector((state) => state.name);
+  const userid = useSelector((state) => state.userid);
   return (
     <div className="containerMainOptions">
       <Navbar />

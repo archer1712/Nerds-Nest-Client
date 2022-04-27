@@ -12,6 +12,7 @@ import { createStore } from "redux";
 import userReducer from "./Redux Use/Reducers/UserLoginReducer";
 import { Provider } from "react-redux";
 import Transactions from "./Admin Pages/View Transactions/Transactions";
+import ProtectedRoute from "./Pages/Protected Route/ProtectedRoute";
 
 function App() {
   const store = createStore(
@@ -23,7 +24,11 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
-            <Route exact path="/" element={<MainOptions />}></Route>
+            {/* <Route exact path="/" element={<MainOptions />}></Route>
+            <ProtectedRoute exact path="/" element={<MainOptions />} /> */}
+            <Route exact path="/" element={<ProtectedRoute />}>
+              <Route exact path="/" element={<MainOptions />} />
+            </Route>
             <Route exact path="/buyborrow" element={<BuyPage />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
