@@ -9,6 +9,8 @@ import Collapse from "@mui/material/Collapse";
 import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { login } from "../../Redux Use/Actions/UserActions";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -19,6 +21,7 @@ const Register = () => {
   const [alert, setAlert] = useState("");
   const [alertOpen, setAlertOpen] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -47,13 +50,18 @@ const Register = () => {
       bought: [],
       sold: [],
       rented: [],
+      isUserAdmin: false,
     };
     try {
       const res = await axios.post(
-        "https://nerds-nest-server.herokuapp.com/auth/register",
+        `http://localhost:8080/user/register/`,
         newUser
       );
-      if (res.status === 202) {
+      localStorage.setItem("isUserAdmin", false);
+      localStorage.setItem("userID", res.data.userID);
+      newUser.userId = res.data.userID;
+      dispatch(login(newUser))
+      if (res.status === 400) {
         setAlert("You already have an account with this email!");
       } else {
         navigate("/");

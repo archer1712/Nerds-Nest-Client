@@ -5,6 +5,8 @@ const initialUser = {
   password: "",
   address: "",
   phone: "",
+  userId: "",
+  isUserAdmin: false
 };
 
 const userReducer = (state = initialUser, action) => {
@@ -17,6 +19,8 @@ const userReducer = (state = initialUser, action) => {
         password: action.payload.password,
         address: action.payload.address,
         phone: action.payload.phone,
+        userId: action.payload.userID,
+        isUserAdmin: action.payload.isUserAdmin
       };
     case "Logout":
       return {

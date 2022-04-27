@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import "./Login.css";
 import axios from "axios";
@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch } from "react-redux";
 import { login } from "../../Redux Use/Actions/UserActions";
-
+// import baseUrl from "../../../BaseUrl.js"
 const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,24 +18,36 @@ const Login = () => {
   const navigate = useNavigate();
   const [alertOpen, setAlertOpen] = useState(false);
   const [alert, setAlert] = useState("");
+  const [userID, setUserID] = useState("");
+  const [isUserAdmin, setIsUserAdmin] = useState(false);
   const dispatch = useDispatch();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     var user = {
-      name: name,
+      // name: name,
       email: email,
       password: password,
-      phone: "",
-      address: "",
+      isUserAdmin: false,
+      userId: ""
+      // phone: "",
+      // address: "",
     };
     try {
       const res = await axios.post(
-        "https://nerds-nest-server.herokuapp.com/auth/login",
+        `http://localhost:8080/user/login/`,
         user
       );
-      console.log(res);
       if (res.status === 200) {
+        localStorage.setItem("isUserAdmin", JSON.stringify(res.data.isUserAdmin));
+        localStorage.setItem("userID", JSON.stringify(res.data.userID));
+        setUserID(res.data.userID);
+        user.userId = res.data.userID; 
+        const adm = res.data.isUserAdmin;
+        if(adm){
+          setIsUserAdmin(true);
+          user.isUserAdmin = true;
+        }
         const phone = res.data.phonenumber;
         const address = res.data.address;
         user.phone = phone;
