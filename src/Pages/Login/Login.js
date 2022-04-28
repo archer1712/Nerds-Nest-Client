@@ -31,20 +31,20 @@ const Login = () => {
       isUserAdmin: false,
       userId: "",
       // phone: "",
-      address: ""
+      address: "",
     };
     try {
-      const res = await axios.post(
-        `http://localhost:8080/user/login/`,
-        user
-      );
+      const res = await axios.post(`http://localhost:8080/user/login/`, user);
       if (res.status === 200) {
-        localStorage.setItem("isUserAdmin", JSON.stringify(res.data.isUserAdmin));
+        localStorage.setItem(
+          "isUserAdmin",
+          JSON.stringify(res.data.isUserAdmin)
+        );
         localStorage.setItem("userID", JSON.stringify(res.data.userID));
         setUserID(res.data.userID);
-        user.userId = res.data.userID; 
+        user.userId = res.data.userID;
         const adm = res.data.isUserAdmin;
-        if(adm){
+        if (adm) {
           setIsUserAdmin(true);
           user.isUserAdmin = true;
         }
@@ -104,6 +104,7 @@ const Login = () => {
           <input
             className="loginInput"
             placeholder="Password"
+            type="password"
             onChange={(e) => setPassword(e.target.value)}
           ></input>
           <button className="loginButton" onClick={handleLogin}>
