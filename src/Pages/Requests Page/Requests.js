@@ -1,5 +1,6 @@
 import React from "react";
 import "./Requests.css";
+import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { IconButton } from "@mui/material";
@@ -9,17 +10,39 @@ import Request from "../../Components/Request Component/Request";
 import { Books } from "../../dummyData";
 
 function Requests() {
-  const [requests, setRequests] = React.useState(Books);
-  const [allreqs, setAllreqs] = React.useState(Books);
+  const [requests, setRequests] = React.useState([]);
+  const [allreqs, setAllreqs] = React.useState([]);
   const navigate = useNavigate();
 
-  const handleChange = async (event) => {
+  const [dataRecieved, setDataRecieved] = React.useState(false);
+
+  React.useEffect(() => {
+    const fetchRequests = async () => {
+      const userID = JSON.parse(localStorage.getItem("userID"));
+      try {
+        const BooksFetched = await axios.get(
+          `http://localhost:8080/user/get-all-lending-requests?userid=${userID}`
+        );
+        console.log(BooksFetched.data);
+
+        if (BooksFetched.status === 200) {
+          setRequests(BooksFetched.data);
+          setAllreqs(BooksFetched.data);
+          setDataRecieved(true);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchRequests();
+  }, []);
+
+  const handleChange = (event) => {
     const querry = event.target.value;
-    const filteredBooks = allreqs.filter((Book) => {
-      return Book.title.toLowerCase().includes(querry.toLowerCase());
+    const filteredReqs = allreqs.filter((Request) => {
+      return Request.title.toLowerCase().includes(querry.toLowerCase());
     });
-    setRequests(filteredBooks);
-    console.log(filteredBooks);
+    setRequests(filteredReqs);
   };
 
   return (
@@ -45,11 +68,19 @@ function Requests() {
       </div>
       <Divider sx={{ borderBottomWidth: 3 }} />
       <div className="requestHeading">Requests</div>
-      <div className="requestlist">
-        {requests.map((book) => (
-          <Request request={book} />
-        ))}
-      </div>
+      {dataRecieved ? (
+        <div className="requestlist">
+          {requests.map((req) => (
+            <Request
+              book={req.book}
+              status={req.status}
+              borrower={req.borrower}
+            />
+          ))}
+        </div>
+      ) : (
+        "Loading Data"
+      )}
     </div>
   );
 }

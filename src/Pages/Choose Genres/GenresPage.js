@@ -36,7 +36,8 @@ function GenresPage() {
   const handlePutbook = async (e) => {
     e.preventDefault();
     const Book = { ...state, genres };
-    Book.lender = JSON.parse(localStorage.getItem("userID"));
+    console.log(localStorage.getItem("userID"));
+    Book.lender = localStorage.getItem("userID");
     Book.lenderName = lenderName;
     Book.lenderAddress = lenderAddress;
     Book.lenderEmail = lenderEmail;

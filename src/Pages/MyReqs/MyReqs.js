@@ -11,20 +11,36 @@ import { Books } from "../../dummyData";
 import MyRequest from "../../Components/MyRequest/MyRequest";
 
 const MyReqs = () => {
-  const [BookList, setBookList] = useState([]);
+  const [requestList, setRequestList] = useState([]);
+  const [allreqs, setAllreqs] = useState([]);
+  const [dataRecieved, setDataRecieved] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setBookList(Books);
+    const fetchRequests = async () => {
+      try {
+        const BooksFetched = await axios.get(
+          `http://localhost:8080/user/get-all-requests?userid=${localStorage.getItem(
+            "userID"
+          )}`
+        );
+        console.log(BooksFetched.data);
+        setRequestList(BooksFetched.data);
+        setAllreqs(BooksFetched.data);
+        setDataRecieved(true);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchRequests();
   }, []);
 
-  const handleChange = async (event) => {
+  const handleChange = (event) => {
     const querry = event.target.value;
-    const filteredBooks = Books.filter((Book) => {
-      return Book.title.toLowerCase().includes(querry.toLowerCase());
+    const filteredReqs = allreqs.filter((Request) => {
+      return Request.title.toLowerCase().includes(querry.toLowerCase());
     });
-    setBookList(filteredBooks);
-    console.log(filteredBooks);
+    setRequestList(filteredReqs);
   };
 
   return (
@@ -47,11 +63,15 @@ const MyReqs = () => {
         </div>
       </div>
       <Divider sx={{ borderBottomWidth: 3 }} />
-      <div className="buyBooks">
-        {BookList.map((book) => (
-          <MyRequest Request={book} />
-        ))}
-      </div>
+      {dataRecieved ? (
+        <div className="buyBooks">
+          {requestList.map((req) => (
+            <MyRequest book={req.book} status={req.status} />
+          ))}
+        </div>
+      ) : (
+        "Loading Data"
+      )}
     </div>
   );
 };

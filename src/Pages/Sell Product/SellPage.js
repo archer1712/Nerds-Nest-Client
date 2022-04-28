@@ -73,11 +73,11 @@ const SellPage = () => {
               placeholder="ISBN"
               onChange={(e) => setIsbn(e.target.value)}
             ></input>
-            <input
+            {/* <input
               className="sellInput halfInput"
               placeholder="Price"
               onChange={(e) => setPrice(e.target.value)}
-            ></input>
+            ></input> */}
           </div>
         </form>
         <button className="sellButton" onClick={handlePutUp}>
