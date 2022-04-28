@@ -10,6 +10,8 @@ import axios from "axios";
 
 const BuyPage = () => {
   const [BookList, setBookList] = useState([]);
+  const [allbooks, setAllbooks] = useState([]);
+  const [query, setQuery] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
     const fetchBooks = async () => {
@@ -18,12 +20,22 @@ const BuyPage = () => {
           "http://localhost:8080/book/get-all-books"
         );
         setBookList(BooksFetched.data);
+        setAllbooks(BooksFetched.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchBooks();
   }, []);
+
+  const handleChange = async (event) => {
+    const querry = event.target.value;
+    const filteredBooks = allbooks.filter((Book) => {
+      return Book.title.toLowerCase().includes(querry.toLowerCase());
+    });
+    setBookList(filteredBooks);
+    console.log(filteredBooks);
+  };
 
   console.log(typeof BookList);
   return (
@@ -33,7 +45,10 @@ const BuyPage = () => {
           <IconButton className="buySearchButton">
             <SearchIcon />
           </IconButton>
-          <input className="buySearchInput"></input>
+          <input
+            className="buySearchInput"
+            onChange={(event) => handleChange(event)}
+          ></input>
         </div>
         <span className="title">Nerd's Nest</span>
         <div className="buyAccountButton">

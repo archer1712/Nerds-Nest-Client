@@ -18,9 +18,7 @@ const UserPage = () => {
   React.useEffect(() => {
     const fetchUser = async () => {
       try {
-        const currentUser = await axios.get(
-          `baseUrl/user/${user.email}`
-        );
+        const currentUser = await axios.get(`baseUrl/user/${user.email}`);
         setBorrowed(currentUser.borrowed);
         setBought(currentUser.bought);
         setRented(currentUser.rented);
@@ -92,14 +90,12 @@ const UserPage = () => {
           <div className="userImage">
             <img src="https://www.pngall.com/wp-content/uploads/5/Profile-PNG-Clipart.png"></img>
           </div>
-          <div className="userName">Jahnavi Gurdasani</div>
+          <div className="userName">{user.name}</div>
         </div>
+        {console.log(user)}
         <div className="userDetailsRight">
-          <div className="userEmailID">Email ID : jahnavi.karuna@gmail.com</div>
-          <div xlassName="userAddress">
-            Address : CT-15, Armapur Estate, Armapur, Kanpur - 500078
-          </div>
-          <div className="userPhone">Phone : 9830509800</div>
+          <div className="userEmailID">Email ID : {user.email}</div>
+          <div xlassName="userAddress">Address : {user.address}</div>
           <div className="userPhone">Wallet Balance : Rs. 100</div>
           <div className="userButtons">
             <div className="deleteAccount">
@@ -134,6 +130,7 @@ const UserPage = () => {
                 </DialogActions>
               </BootstrapDialog>
               <button className="changePasswordButton">Change Password</button>
+              <button className="logoutButton">Log Out</button>
             </div>
           </div>
         </div>

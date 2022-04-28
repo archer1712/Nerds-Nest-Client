@@ -10,7 +10,18 @@ import { Books } from "../../dummyData";
 
 function Requests() {
   const [requests, setRequests] = React.useState(Books);
+  const [allreqs, setAllreqs] = React.useState(Books);
   const navigate = useNavigate();
+
+  const handleChange = async (event) => {
+    const querry = event.target.value;
+    const filteredBooks = allreqs.filter((Book) => {
+      return Book.title.toLowerCase().includes(querry.toLowerCase());
+    });
+    setRequests(filteredBooks);
+    console.log(filteredBooks);
+  };
+
   return (
     <div className="requestContainer">
       <div className="buyNav">
@@ -18,7 +29,12 @@ function Requests() {
           <IconButton className="buySearchButton">
             <SearchIcon />
           </IconButton>
-          <input className="buySearchInput"></input>
+          <input
+            className="buySearchInput"
+            onChange={(event) => {
+              handleChange(event);
+            }}
+          ></input>
         </div>
         <span className="title">Nerd's Nest</span>
         <div className="buyAccountButton">

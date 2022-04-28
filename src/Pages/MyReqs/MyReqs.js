@@ -14,6 +14,19 @@ const MyReqs = () => {
   const [BookList, setBookList] = useState([]);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setBookList(Books);
+  }, []);
+
+  const handleChange = async (event) => {
+    const querry = event.target.value;
+    const filteredBooks = Books.filter((Book) => {
+      return Book.title.toLowerCase().includes(querry.toLowerCase());
+    });
+    setBookList(filteredBooks);
+    console.log(filteredBooks);
+  };
+
   return (
     <div className="buyContainer">
       <div className="buyNav">
@@ -21,7 +34,10 @@ const MyReqs = () => {
           <IconButton className="buySearchButton">
             <SearchIcon />
           </IconButton>
-          <input className="buySearchInput"></input>
+          <input
+            className="buySearchInput"
+            onChange={(event) => handleChange(event)}
+          ></input>
         </div>
         <span className="title">Nerd's Nest</span>
         <div className="buyAccountButton">
@@ -32,7 +48,7 @@ const MyReqs = () => {
       </div>
       <Divider sx={{ borderBottomWidth: 3 }} />
       <div className="buyBooks">
-        {Books.map((book) => (
+        {BookList.map((book) => (
           <MyRequest Request={book} />
         ))}
       </div>

@@ -101,7 +101,7 @@ img {
   background-color: green;
   border: solid 5px black;
   border-radius: 7px;
-  margin-right: 0px;
+  /* margin-right: 0px; */
   color: white;
 }
 
@@ -147,6 +147,19 @@ img {
   width: 70%;
   height: 80%;
   margin-left: 20px;
+}
+
+.logoutButton {
+  padding: 10px;
+  margin: 10px;
+  background-color: orangered;
+  border: solid 5px black;
+  border-radius: 7px;
+  color: white;
+}
+
+.logoutButton:hover {
+  cursor: pointer;
 }
 
 
