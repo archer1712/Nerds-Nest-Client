@@ -13,6 +13,7 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
 
 const UserPage = () => {
   React.useEffect(() => {
@@ -37,12 +38,20 @@ const UserPage = () => {
   const [rented, setRented] = React.useState([]);
   const [sold, setSold] = React.useState([]);
   const [open, setOpen] = React.useState(false);
+  const [pwdopen, setPwdopen] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handlePasswordOpen = () => {
+    setPwdopen(true);
+  };
+  const handlePasswordClose = () => {
+    setPwdopen(false);
   };
 
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -129,8 +138,48 @@ const UserPage = () => {
                   </Button>
                 </DialogActions>
               </BootstrapDialog>
-              <button className="changePasswordButton">Change Password</button>
+              <button
+                className="changePasswordButton"
+                onClick={handlePasswordOpen}
+              >
+                Change Password
+              </button>
               <button className="logoutButton">Log Out</button>
+              <BootstrapDialog
+                onClose={handlePasswordClose}
+                aria-labelledby="customized-dialog-title"
+                open={pwdopen}
+              >
+                <BootstrapDialogTitle
+                  id="customized-dialog-title"
+                  onClose={handlePasswordClose}
+                >
+                  Change Password
+                </BootstrapDialogTitle>
+                <DialogContent dividers>
+                  <Typography gutterBottom>
+                    For changing password, please type in your new Password
+                    here:
+                  </Typography>
+                </DialogContent>
+                <DialogActions>
+                  <TextField
+                    autoFocus
+                    margin="dense"
+                    id="Location"
+                    label="New Password"
+                    type="password"
+                    fullWidth
+                    variant="standard"
+                  />
+                  <Button autoFocus onClick={handlePasswordClose}>
+                    Cancel
+                  </Button>
+                  <Button autoFocus onClick={handlePasswordClose}>
+                    Change Password
+                  </Button>
+                </DialogActions>
+              </BootstrapDialog>
             </div>
           </div>
         </div>

@@ -60,7 +60,7 @@ const Register = () => {
       localStorage.setItem("isUserAdmin", false);
       localStorage.setItem("userID", res.data.userID);
       newUser.userId = res.data.userID;
-      dispatch(login(newUser))
+      dispatch(login(newUser));
       if (res.status === 400) {
         setAlert("You already have an account with this email!");
       } else {
@@ -124,6 +124,7 @@ const Register = () => {
           <input
             className="registerInput"
             placeholder="Password"
+            type="password"
             onChange={(e) => setPassword(e.target.value)}
           ></input>
           <button className="registerButton" onClick={handleRegister}>
