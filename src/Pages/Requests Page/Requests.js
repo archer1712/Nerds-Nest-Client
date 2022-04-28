@@ -13,7 +13,7 @@ function Requests() {
   const [requests, setRequests] = React.useState([]);
   const [allreqs, setAllreqs] = React.useState([]);
   const navigate = useNavigate();
-
+  const [isUpdated, setIsUpdated] = React.useState("");
   const [dataRecieved, setDataRecieved] = React.useState(false);
 
   React.useEffect(() => {
@@ -35,7 +35,7 @@ function Requests() {
       }
     };
     fetchRequests();
-  }, []);
+  }, [isUpdated]);
 
   const handleChange = (event) => {
     const querry = event.target.value;
@@ -75,6 +75,8 @@ function Requests() {
               book={req.book}
               status={req.status}
               borrower={req.borrower}
+              setIsUpdated={setIsUpdated}
+              requestId = {req.id}
             />
           ))}
         </div>

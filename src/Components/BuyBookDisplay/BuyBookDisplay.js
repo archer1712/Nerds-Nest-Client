@@ -14,7 +14,7 @@ const BuyBookDisplay = ({ book }) => {
   const [msg, setMsg] = React.useState("");
 
   React.useEffect(() => {
-    if(sendingRequest == true){
+    if(sendingRequest === true){
       const sendRequest =  () => {
         
 

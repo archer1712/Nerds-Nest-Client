@@ -20,9 +20,9 @@ const MyReqs = () => {
     const fetchRequests = async () => {
       try {
         const BooksFetched = await axios.get(
-          `http://localhost:8080/user/get-all-requests?userid=${localStorage.getItem(
+          `http://localhost:8080/user/get-all-requests?userid=${JSON.parse(localStorage.getItem(
             "userID"
-          )}`
+          ))}`
         );
         console.log(BooksFetched.data);
         setRequestList(BooksFetched.data);
